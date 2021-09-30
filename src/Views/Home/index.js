@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from "../../Components/Layout";
-import Product from "../../Components/Product";
 import {useDispatch, useSelector} from "react-redux";
 
 const Home = () => {
@@ -20,6 +19,22 @@ const Home = () => {
             "description": "Hemiplegia, unspecified affecting left dominant side",
             "amount": 2,
             "images": "http://dummyimage.com/222x100.png/5fa2dd/ffffff"
+        },
+        {
+            "id": 3,
+            "title": "Beer - Maudite",
+            "price": "9.42",
+            "description": "Obstructed labor due to malpos and malpresent, unsp, fetus 2",
+            "amount": 3,
+            "images": "http://dummyimage.com/173x100.png/ff4444/ffffff"
+        },
+        {
+            "id": 4,
+            "title": "Juice - Lagoon Mango",
+            "price": "2.38",
+            "description": "Personal history of oth (corrected) congenital malformations",
+            "amount": 4,
+            "images": "http://dummyimage.com/179x100.png/5fa2dd/ffffff"
         }
     ]
     const dispatch = useDispatch()
@@ -39,7 +54,8 @@ const Home = () => {
                                 <img src={product.images} width='200' height='100' alt=""/>
                                 <h5>{product.title}</h5>
                                 <p>{product.price}$</p>
-                                <button className='btn-info' onClick={() => dispatch({type: 'ADD_TO_CART', payload: product})}>
+                                <button className='btn-info'
+                                        onClick={() => dispatch({type: 'ADD_TO_CART', payload: product})}>
                                     В корзину
                                 </button>
                             </div>
