@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Layout from "../../Components/Layout";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -38,7 +38,7 @@ const Home = () => {
         }
     ]
     const dispatch = useDispatch()
-    const catalog = useSelector(store => store.catalog)
+    const catalog = useSelector(s => s.catalog)
 
     useEffect(() => {
         dispatch({type: 'GET_CATALOG', payload: data})
