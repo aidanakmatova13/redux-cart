@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from "../../Components/Layout";
 import {useSelector, useDispatch} from "react-redux";
 import './style.css'
+import {addCatalog, delCatalog} from "../../redux/actions";
 
 const Cart = () => {
     const dispatch = useDispatch()
@@ -30,11 +31,11 @@ const Cart = () => {
                                         <td>{el.price}$</td>
                                         <td>
                                             <button className='btn-danger'
-                                                    onClick={() => dispatch({type: 'DECREASE_TO_ONE', payload: el})}>-
+                                                    onClick={() => dispatch(delCatalog(el))}>-
                                             </button>
                                             {el.quantity}
                                             <button className='btn-primary'
-                                                    onClick={() => dispatch({type: 'ADD_TO_CART', payload: el})}>+
+                                                    onClick={() => dispatch(addCatalog(el))}>+
                                             </button>
                                         </td>
                                         <td>
